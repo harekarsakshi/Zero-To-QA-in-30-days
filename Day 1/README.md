@@ -1,36 +1,43 @@
-
 # Day 1: Visual Regression & Layout Diagnostics
 
-## 📌 Objective
-Conducted a comprehensive frontend user interface (UI) and layout regression audit of the core Amazon Search Results architecture. The focus of this assessment was to evaluate visual hierarchy consistency, layout responsiveness across dynamic viewport configurations, and real-time state persistence.
+## What I did
+
+Performed a manual UI audit of the Amazon search results page for the query "toys for ages 5-7". The goal was to check how well the page looks, how it responds when you resize the browser window, and whether the shopping cart updates correctly in real time.
+
+**Page tested:** [Amazon — Toys for Ages 5-7](https://www.amazon.com/s?k=toys+for+ages+5-7&ref=sr_nr_p_rag_integrated_qb_1)
 
 ---
 
-## 🔍 QA Observation Report
+## What I found
 
-> **Audit Target:** [Amazon Toys For Ages 5-7 Search Interface](https://www.amazon.com/s?k=toys+for+ages+5-7&ref=sr_nr_p_rag_integrated_qb_1)
-> **Status:** Critical Frontend Refinement Required Prior to Production Release
+### Things that work well
 
-During the UI evaluation of the Amazon search results page, the interface demonstrated strong high-quality indicators, including distinct bold formatting for fractional pricing (e.g., $16.97), clear trust badges ("Overall Pick"), and fluid, persistent shopping cart updates. 
-
-However, severe quality risks were identified that require immediate frontend refinement before a production-ready release. Product titles suffer from heavy keyword stuffing that creates severe readability bottlenecks, and the core product grid elements fail to align properly when the browser window viewport size varies. This fragmentation clutters the visual hierarchy and presents a critical risk for mobile layout misalignment.
-
----
-
-## 📊 Deep-Dive Breakdown
-
-### 🟢 High-Quality Engineering Indicators
-* **Fractional Pricing Typography:** Clean, bold separation of currency integers and fractional cents reduces cognitive load and accelerates price scannability.
-* **Persistent Session State:** The global shopping cart subsystem demonstrates reliable, fluid data synchronization, accurately tracking delta changes in item counts in real time.
-* **Trust Anchor Hierarchy:** High-visibility contextual badges (e.g., *Best Seller*, *Overall Pick*) are structurally prioritized to streamline the user decision matrix.
-
-### 🔴 High-Risk Technical Defects
-* **Viewport Resizing & Grid Realignment:** The responsive layout engine fails to maintain element alignment during fluid window transformations, threatening structural stability on transitionary breakpoints.
-* **Mobile Breakpoint Vulnerability:** The combination of misaligned containers and bloated text strings suggests a high probability of severe component overlapping on smaller form-factors.
+| What I tested | What I saw | Why it matters |
+|---|---|---|
+| Price display | The cents are shown smaller and bold (e.g. $16.**97**) | Makes prices easier to scan quickly |
+| Shopping cart | Cart count updates instantly when you add an item | Shows the site keeps your session data correctly |
+| Trust badges | "Best Seller" and "Overall Pick" labels are clearly visible | Helps users make decisions faster |
 
 ---
 
-## 🛠️ Skills & Methodologies Demonstrated
-* Frontend Visual Regression Testing
-* Responsive Breakpoint & Viewport Diagnostic Analysis
-* Technical Defect Documentation & Hierarchy Evaluation
+### Problems I found
+
+| Problem | What happens | Risk level |
+|---|---|---|
+| Grid layout breaks on resize | Product cards lose alignment when you drag the browser window smaller | High — layout looks broken on tablets |
+| Product titles are too long | Titles are stuffed with keywords and hard to read | High — likely to overlap or get cut off on mobile screens |
+| Mobile layout risk | Combination of misaligned cards + long titles = components overlapping on small screens | High — mobile users would have a poor experience |
+
+---
+
+## Skills used
+
+- Manual visual regression testing
+- Responsive layout and breakpoint testing
+- Bug documentation and severity rating
+
+---
+
+## Key takeaway
+
+The page has solid foundations — pricing, cart, and trust badges all work well. But the layout is fragile under viewport changes and the product titles create a real risk of broken layouts on mobile. These issues should be fixed before a production release.
