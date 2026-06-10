@@ -1,3 +1,4 @@
+# Day 4
 # Hands-On Lab: Identifying Testing Types on Amazon Login
 **Target Page:** `amazon.com/ap/signin`
 
