@@ -1,4 +1,4 @@
-# Amazon-Style Store API Tests
+# Amazon-Style Store API Tests using Postman
 
 This project forms part of my hands-on Quality Assurance training, focused on API testing methodology, verification, and regression control using **Postman**. 
 
